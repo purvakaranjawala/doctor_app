@@ -1,0 +1,52 @@
+<%= form_for(treatment) do |f| %>
+  <% if treatment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(treatment.errors.count, "error") %> prohibited this treatment from being saved:</h2>
+      <ul>
+      <% treatment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :disease_name %>
+    <%= f.text_field :disease_name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :medication %>
+    <%= f.text_field :medication %>
+  </div>
+
+  <div class="field">
+    <%= f.label :testing %>
+    <%= f.text_field :testing %>
+  </div>
+
+  <div class="field">
+    <%= f.label :next_checkup %>
+    <%= f.date_field :next_checkup %>
+  </div>
+
+  <div class="field">
+    <%= f.label :precaution %>
+    <%= f.date_field :precaution %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dose_period %>
+    <%= f.text_field :dose_period %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fees %>
+    <%= f.number_field :fees %>
+  </div>
+
+  <div class="actions btn btn-primary"">
+    <%= f.hidden_field :disease_info_id,value: params[:disease_info]  %>
+    <%= f.submit  %>
+  </div>
+<% end %>

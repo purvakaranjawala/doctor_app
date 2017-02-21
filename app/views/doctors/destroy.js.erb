@@ -1,0 +1,7 @@
+$('.delete_doctor').bind('ajax:success', function() {
+  $(this).closest('tr').fadeOut();
+  $('.specalist').find('option').remove()
+  "<% Doctor.all.map(&:specialist).uniq.each do |s|%>"
+		$('.specalist').append('<option selected value=<%= s%>><%= s%></option>') ;
+	"<%end%>"
+});

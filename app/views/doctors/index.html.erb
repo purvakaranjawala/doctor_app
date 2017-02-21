@@ -1,0 +1,30 @@
+<h3>Doctors</h3>
+<%#= select("Specialist", "person_id", Doctor.all.collect {|p| [ p.specialist, p.specialist ] }, { include_blank: true },id: ) %>
+</br>
+<%= select_tag 'specialist', options_for_select(Doctor.all.map(&:specialist).uniq), {prompt: "select specialist", class: "specalist", :id => "new_doctor"} %>
+<br>
+<div id="specialist_list">
+  <%= render :partial => "doctor", :locals => {:doctors => @doctors } %>  
+</div>
+<br>
+
+<%= link_to 'New Doctor', new_doctor_path, class: "btn btn-primary", remote: true, :id => "new_doctor"%>
+
+<script type="text/javascript">
+ $(function(){
+  $(".specalist").on('change',function(){
+    specialist = $(this).val();
+    $.ajax({
+      url: "/doctors/update_specialist",
+      data: {specialist: specialist},
+      success:function(data){
+      }
+    }).error(function(){alert('An error occured');
+    });
+  });
+ });
+ 
+ $(function(){
+  $("#new_doctor").hide();
+ });
+</script>

@@ -1,0 +1,27 @@
+<h3>Disease information</h3>
+<table class= "table table-bordered">
+  <thead>
+    <tr>
+      <th>Patient</th>
+      <th>Symptoms</th>
+      <th>Symptom time</th>
+      <th>Patient type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @list.each do |disease_info| %>
+      <tr>
+        <td><%= disease_info.patient.firstname %></td>
+        <td><%= disease_info.symptoms %></td>
+        <td><%= disease_info.symptom_time %></td>
+        <td><%= disease_info.patient_type %></td>
+        <%#unless disease_info.treatment.present?%>
+          <td><%= link_to 'Provide Treatment',{controller: "treatments",action: "new",disease_info: disease_info.id}, class: "btn btn-primary"%>
+        <%#end%>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

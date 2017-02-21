@@ -1,0 +1,49 @@
+
+<p>
+  <strong>Profile Picture</strong>
+  <%= image_tag @patient.profile_picture.url(:thumb) %>
+</p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @patient.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @patient.lastname %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @patient.gender %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @patient.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @patient.state %>
+</p>
+
+<p>
+  <strong>Contact no:</strong>
+  <%= @patient.contact_no %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @patient.age%>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @patient.dob %>
+</p>
+
+<%= link_to 'Edit', edit_patient_path(@patient), class: "btn btn-primary" %> 
+<%= link_to 'Back', patients_path, class: "btn btn-primary" %>
+

@@ -1,0 +1,1 @@
+json.array! @disease_infos, partial: 'disease_infos/disease_info', as: :disease_info

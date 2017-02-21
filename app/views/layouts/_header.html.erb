@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark bg-inverse navbar-fixed-top">
+  <div >
+    <ul class="nav navbar-nav">
+      <% if user_signed_in? %>
+        <li class="nav-item"> Signed in as <%= current_user.email %>
+          <%= link_to "Logout", destroy_user_session_path, :method => :delete,class: "navbar-brand" %>&nbsp;&nbsp;&nbsp;
+          <%= link_to "Home", root_path, class: "navbar-brand" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,33 @@
+
+<h3>Disease Infos</h3>
+
+<table class= "table table-bordered">
+  <thead>
+    <tr>
+      <th>Symptoms</th>
+      <th>Doctor</th>
+      <th>Patient</th>
+      <th>Symptom time</th>
+      <th>Patient type</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @disease_infos.each do |disease_info| %>
+      <tr>
+        <td><%= disease_info.symptoms %></td>
+        <td><%= disease_info.doctor.firstname %></td>
+        <td><%= disease_info.patient.firstname %></td>
+        <td><%= disease_info.symptom_time %></td>
+        <td><%= disease_info.patient_type %></td>
+        <td><%= link_to 'Show', disease_info %></td>
+        <td><%= link_to 'Edit', edit_disease_info_path(disease_info) %></td>
+        <td><%= link_to 'Destroy', disease_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>     
+        <td><%= link_to 'Treatment',{controller: "treatments",action: "show",id: disease_info.id}%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+

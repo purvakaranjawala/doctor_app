@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  symptoms: MyString
+  doctor: one
+  patient: one
+  symptom_time: MyString
+  patient_type: MyString
+
+two:
+  symptoms: MyString
+  doctor: two
+  patient: two
+  symptom_time: MyString
+  patient_type: MyString

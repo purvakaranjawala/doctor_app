@@ -1,0 +1,42 @@
+<%= form_for(disease_info) do |f| %>
+  <% if disease_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(disease_info.errors.count, "error") %> prohibited this disease_info from being saved:</h2>
+
+      <ul>
+      <% disease_info.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :symptoms %>
+    <%= f.text_field :symptoms, class: "form-control" %>
+  </div><br />
+
+  <div class="field dropdown">
+    <%= f.label :doctor_id %>&nbsp;&nbsp;
+    <%= f.collection_select :doctor_id, Doctor.order(:firstname),:id,:firstname, include_blank: true%>
+  </div><br />
+
+  <div class="field">
+    <%= f.label :symptom_time %>
+    <%= f.text_field :symptom_time%>
+  </div><br />
+
+  <div class="field radio">
+    <%= f.label :patient_type %>:&nbsp;&nbsp;
+    <%= f.label :patient_type, "Regular Patient", :value => "regular"  %>
+    <%= f.radio_button :patient_type, "regular" %>
+    <%= f.label :patient_type, "New Patient", :value => "new" %>
+    <%= f.radio_button :patient_type, "new" %>  
+  </div>
+  <br />
+  
+  <div class="actions">
+    <%= f.hidden_field :patient_id,value: @patient.id %>
+    <%= f.submit %>
+  </div>
+<% end %>

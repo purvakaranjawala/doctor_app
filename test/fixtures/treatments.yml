@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  disease_name: MyString
+  next_checkup: 2017-02-10
+  medication: MyString
+  test: MyString
+  precaution: 
+  Dose_period: MyString
+  doctor: 
+
+two:
+  disease_name: MyString
+  next_checkup: 2017-02-10
+  medication: MyString
+  test: MyString
+  precaution: 
+  Dose_period: MyString
+  doctor: 

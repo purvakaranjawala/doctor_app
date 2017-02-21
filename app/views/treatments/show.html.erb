@@ -1,0 +1,37 @@
+<p>
+  <strong>DiseaseName</strong>
+  <%= @treatment.disease_name %>
+</p>
+
+<p>
+  <strong>Medication:</strong>
+  <%= @treatment.medication %>
+</p>
+
+<p>
+  <strong>Test:</strong>
+  <%= @treatment.testing %>
+</p>
+
+<p>
+  <strong>Next Checkup Date</strong>
+  <%= @treatment.next_checkup %>
+</p>
+
+<p>
+  <strong>Precaution:</strong>
+  <%= @treatment.precaution %>
+</p>
+
+<p>
+  <strong>Dose Period:</strong>
+  <%= @treatment.dose_period %>
+</p>
+
+<p>
+  <strong>Fees:</strong>
+  <%= @treatment.fees %>
+</p>
+
+<%= link_to 'Back',:back, class: "btn btn-primary"%>
+<%= link_to 'Proceed for payment', class: "btn btn-primary" %>
