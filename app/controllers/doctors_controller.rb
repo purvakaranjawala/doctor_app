@@ -29,12 +29,14 @@ class DoctorsController < ApplicationController
   end
 
   def create
-  
     @doctor = Doctor.new(doctor_params)
     respond_to do |f|
-      @doctor.save
-      f.html { redirect_to doctors_url}
-      f.js   { redirect_to doctors_url, notice: 'Doctor was successfully created.'  }
+      if @doctor.save
+        f.html { redirect_to doctors_url}
+        f.js   { redirect_to doctors_url, notice: 'Doctor was successfully created.'  }
+      else
+        f.html  {render :new, notice: "Doctor not saved"}
+      end
     end
   end
 
@@ -47,6 +49,13 @@ class DoctorsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @doctor.errors, status: :unprocessable_entity }
       end
+    end
+  end
+  
+  def update_cities
+    @cities = City.where("state_id = ?", params[:state_id])
+    respond_to do |format|
+      format.js
     end
   end
 

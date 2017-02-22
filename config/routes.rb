@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   
   resources :doctors do
     get 'all_patient_list', on: :member 
-    get 'update_specialist', on: :collection
+    collection do
+      get 'update_specialist'
+      get 'update_cities'
+    end
   end
     
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

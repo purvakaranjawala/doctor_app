@@ -1,37 +1,39 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<%= javascript_include_tag 'front_page'%>
+<%= stylesheet_link_tag    'front_page'%>
+<div class="container">
+  <div class="info">
+    <h1>Sign Up</h1>
   </div>
+</div>
+<div class="form">
+  <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg"/></div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name),class: "register-form") do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
   
-  <div class="field form-group radio">
-    <%= f.label :role %><br />
-    <%= f.label :role, "Doctor", :value => "true"  %>
-    <%= f.radio_button :role, "doctor" %>
-    <%= f.label :role, "Patient", :value => "false" %>
-    <%= f.radio_button :role, "patient" %>  
-  </div>
+    <div class="field form-group radio">
+      <%= f.label :role %><br />
+      <%= f.label :role, "Doctor", :value => "true"  %>
+      <%= f.radio_button :role, "doctor" %>
+      <%= f.label :role, "Patient", :value => "false" %>
+      <%= f.radio_button :role, "patient" %>  
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
+ <p class="message">Already registered? <%= render "users/shared/links" %></p>
+</div>
 
-<%= render "users/shared/links" %>
