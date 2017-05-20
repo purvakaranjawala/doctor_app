@@ -1,4 +1,4 @@
-<%= form_for(disease_info) do |f| %>
+<%= form_for (disease_info)  do |f| %>
   <% if disease_info.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(disease_info.errors.count, "error") %> prohibited this disease_info from being saved:</h2>
@@ -36,7 +36,10 @@
   <br />
   
   <div class="actions">
-    <%= f.hidden_field :patient_id,value: @patient.id %>
-    <%= f.submit %>
+   <% unless params[:action]=='edit'%> 
+      <%= f.hidden_field :patient_id, value: @patient.id %>
+    <%end%>
+    <%= f.submit%>
   </div>
 <% end %>
+

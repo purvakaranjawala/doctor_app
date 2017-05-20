@@ -136,3 +136,7 @@ body:before {
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 }
+
+.field.form-group.radio > input {
+  width: 50px;
+}

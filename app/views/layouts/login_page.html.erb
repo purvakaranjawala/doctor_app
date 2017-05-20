@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DocPatientApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= javascript_include_tag 'front_page', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'front_page', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>  
+      <%= yield %>
+  </body>
+</html>

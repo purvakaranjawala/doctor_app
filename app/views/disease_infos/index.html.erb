@@ -22,9 +22,13 @@
         <td><%= disease_info.symptom_time %></td>
         <td><%= disease_info.patient_type %></td>
         <td><%= link_to 'Show', disease_info %></td>
-        <td><%= link_to 'Edit', edit_disease_info_path(disease_info) %></td>
+        <%unless disease_info.treatment.present?%>
+          <td><%= link_to 'Edit', edit_disease_info_path(disease_info)%></td>
+        <%else%>
+          <td><%= link_to 'See Treatment',{controller: "treatments",action: "show",id: disease_info.id}%>
+        <%end%>
         <td><%= link_to 'Destroy', disease_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>     
-        <td><%= link_to 'Treatment',{controller: "treatments",action: "show",id: disease_info.id}%>
+        
       </tr>
     <% end %>
   </tbody>

@@ -49,18 +49,13 @@
     <%= f.text_field :dob, class: "form-control", id: "datepicker-11"%>
   </div>
 
-  <!-- <div class="field form-group">
-    <%#= f.label :age %>
-    <%#= f.number_field :age%>
-  </div> -->
-
   <div class="field">
     <%= f.label :profile_picture %>
     <%= f.file_field :profile_picture %>
   </div>
 
-  <div class="actions btn btn-primary"">
-    <%= f.submit  %>
+  <div class="actions">
+    <%= f.submit id:"register"%>
   </div>
 <% end %>
 
@@ -77,5 +72,20 @@
       dateFormat:  "dd/mm/yy"
     }).next('button').text('Show calendar').button({ icons: { primary: 'ui-icon-calendar' }, text: false });
   });  
-
+  
+  (function() {
+    $('form > input').keyup(function() {
+      var empty = false;
+      $('form > input').each(function() {
+        if ($(this).val() == '') {
+          empty = true;
+        }
+      });
+      if (empty) {
+        $('#register').attr('disabled', 'disabled');
+      } else {
+        $('#register').removeAttr('disabled');
+      }
+    });
+});
 </script>

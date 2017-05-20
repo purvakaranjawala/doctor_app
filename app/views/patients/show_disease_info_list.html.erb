@@ -18,10 +18,10 @@
         <td><%= disease_info.symptom_time %></td>
         <td><%= disease_info.patient_type %></td>
         <%#unless disease_info.treatment.present?%>
-          <td><%= link_to 'Provide Treatment',{controller: "treatments",action: "new",disease_info: disease_info.id}, class: "btn btn-primary"%>
+          <td><%= link_to_if(disease_info.treatment.present?, "Treatment Provided") do 
+             link_to('Provide Treatment',{controller: "treatments",action: "new",disease_info: disease_info.id}, class: "btn btn-primary")
+             end %>
         <%#end%>
     <% end %>
   </tbody>
 </table>
-
-<br>

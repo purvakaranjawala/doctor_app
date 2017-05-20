@@ -17,10 +17,12 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'pry'
 gem 'paperclip', "~> 5.0.0.beta1"
 gem 'toastr-rails'
-# Use SCSS for stylesheets
+gem 'audited'# Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+gem 'copycopter_client'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -33,6 +35,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-ui-rails'
+gem 'jquery-datatables-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

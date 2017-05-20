@@ -14,4 +14,6 @@ class Doctor < ApplicationRecord
   validates :contact_no, :presence => {:message => "contact number should be of 10 digits"},:numericality => true , :length => { :minimum => 10, :maximum => 15 }
   
   validates :gender, inclusion: %w(male female)
+  
+  audited
 end
