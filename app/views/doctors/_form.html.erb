@@ -1,65 +1,67 @@
-<%= form_for(@doctor,remote: true, authenticity_token: true) do |f| %>
-  <% if @doctor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this @doctor from being saved:</h2>
-      <ul>
-      <% @doctor.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class = "container">
+  <%= form_for(@doctor,remote: true, authenticity_token: true) do |f| %>
+    <% if @doctor.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this @doctor from being saved:</h2>
+        <ul>
+        <% @doctor.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field form-group">
+      <%= f.label :firstname %>
+      <%= f.text_field :firstname, class: "form-control",required: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :lastname %>
+      <%= f.text_field :lastname, class: "form-control",required: true%>
+    </div>
+
+    <div class="field form-group radio">
+      <%= f.label :gender %><br />
+      <%= f.label :gender, "Male", :value => "male"  %>
+      <%= f.radio_button :gender, "male" %>
+      <%= f.label :gender, "Female", :value => "female" %>
+      <%= f.radio_button :gender, "female" %>  
+    </div>
+    
+    <div class="field">
+      <label>State</label><br>
+      <%= f.select :state, options_for_select(State.all.map{|e| [e.name,e.name]}, f.object.state) , prompt: "Select state" %>
+    </div>
+
+    <div class="field dynamic">     
+      <label>City</label>
+      <%= f.text_field :city, class: "form-control",required: true%>
+    </div>
+
+    <div class="field">
+      <%= f.label :contact_no %>
+      <%= f.number_field :contact_no, class: "form-control",required: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :specialist %>
+      <%= f.text_field :specialist, class: "form-control",required: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :practice %>
+      <%= f.text_field :practice_from, class: "form-control" %>
+    </div>
+    <br/>
+
+    <div class="field">
+      <%= f.label :profile_picture %>
+      <%= f.file_field :profile_picture, rescue: nil%>
+    </div>
+
+    <div class="actions">
+      <%= f.submit%>
     </div>
   <% end %>
-
-  <div class="field form-group">
-    <%= f.label :firstname %>
-    <%= f.text_field :firstname, class: "form-control",required: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :lastname %>
-    <%= f.text_field :lastname, class: "form-control",required: true%>
-  </div>
-
-  <div class="field form-group radio">
-    <%= f.label :gender %><br />
-    <%= f.label :gender, "Male", :value => "male"  %>
-    <%= f.radio_button :gender, "male" %>
-    <%= f.label :gender, "Female", :value => "female" %>
-    <%= f.radio_button :gender, "female" %>  
-  </div>
-  
-  <div class="field">
-    <label>State</label><br>
-    <%= f.select :state, options_for_select(State.all.map{|e| [e.name,e.name]}, f.object.state) , prompt: "Select state" %>
-  </div>
-
-  <div class="field dynamic">     
-    <label>City</label>
-    <%= f.text_field :city, class: "form-control",required: true%>
-  </div>
-
-  <div class="field">
-    <%= f.label :contact_no %>
-    <%= f.number_field :contact_no, class: "form-control",required: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :specialist %>
-    <%= f.text_field :specialist, class: "form-control",required: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :practice %>
-    <%= f.text_field :practice_from, class: "form-control" %>
-  </div>
-  <br/>
-
-  <div class="field">
-    <%= f.label :profile_picture %>
-    <%= f.file_field :profile_picture, rescue: nil%>
-  </div>
-
-  <div class="actions">
-    <%= f.submit%>
-  </div>
-<% end %>
+</div>

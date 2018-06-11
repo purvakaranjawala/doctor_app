@@ -9,8 +9,8 @@ development:
   encoding: unicode
   host: localhost
   pool: 5
-  username: my_demo_app
-  password: my_demo_app
+  username: postgres
+  password: postgres123
   database: doctor_development
 
 test:  
@@ -19,8 +19,8 @@ test:
   timeout: 5000
   database: doctor_test
   host: localhost
-  username: my_demo_app
-  password: my_demo_app
+  username: postgres
+  password: postgres123
 
 
 # Warning: The database defined as "test" will be erased and
@@ -32,6 +32,6 @@ production:
   pool: 5
   timeout: 5000
   host: localhost
-  username: my_demo_app
-  password: my_demo_app
+  username: postgres
+  password: postgres123
   database: doctor_production

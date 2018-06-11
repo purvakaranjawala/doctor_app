@@ -1,29 +1,29 @@
+<div class="container">
+  <p>
+    <strong>Symptoms:</strong>
+    <%= @disease_info.symptoms %>
+  </p>
 
+  <p>
+    <strong>Doctor:</strong>
+    <%= doctor_name(@disease_info) %>
+  </p>
 
-<p>
-  <strong>Symptoms:</strong>
-  <%= @disease_info.symptoms %>
-</p>
+  <p>
+    <strong>Patient:</strong>
+    <%= @disease_info.patient.firstname %>
+  </p>
 
-<p>
-  <strong>Doctor:</strong>
-  <%= @disease_info.doctor.firstname%>
-</p>
+  <p>
+    <strong>Symptom time:</strong>
+    <%= @disease_info.symptom_time %>
+  </p>
 
-<p>
-  <strong>Patient:</strong>
-  <%= @disease_info.patient.firstname %>
-</p>
+  <p>
+    <strong>Patient type:</strong>
+    <%= @disease_info.patient_type %>
+  </p>
 
-<p>
-  <strong>Symptom time:</strong>
-  <%= @disease_info.symptom_time %>
-</p>
-
-<p>
-  <strong>Patient type:</strong>
-  <%= @disease_info.patient_type %>
-</p>
-
-<%= link_to 'Edit', edit_disease_info_path(@disease_info),class: "btn btn-primary" %>
-<%= link_to 'Back', root_path ,class: "btn btn-primary"%>
+  <%= link_to 'Edit', edit_disease_info_path(@disease_info),class: "btn btn-primary" %>
+  <%= link_to 'Back', root_path ,class: "btn btn-primary"%>
+</div>
